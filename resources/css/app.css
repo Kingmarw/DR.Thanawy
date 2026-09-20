@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#nprogress .bar {
+    height: 4px !important;
+}
+
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+@keyframes hero-float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+}
+
+@keyframes pattern-drift {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(-24px, 18px, 0) scale(1.04);
+    }
+}
+
+@keyframes soft-pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(201, 154, 46, 0.12);
+    }
+
+    50% {
+        box-shadow: 0 0 0 12px rgba(201, 154, 46, 0);
+    }
+}
+
+.hero-float {
+    animation: hero-float 6s ease-in-out infinite;
+}
+
+.pattern-drift {
+    animation: pattern-drift 18s ease-in-out infinite alternate;
+}
+
+.soft-pulse {
+    animation: soft-pulse 3.5s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-float,
+    .pattern-drift,
+    .soft-pulse {
+        animation: none;
+    }
+}
+
+
+/* Custom styling for native select */
+select.select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+
+    width: 100%;
+    min-height: 48px;
+
+    padding: 0.875rem 2.75rem 0.875rem 1.25rem !important;
+
+    border: 2px solid rgba(11, 42, 74, 0.15) !important;
+    border-radius: 0.5rem !important;
+
+    background-color: rgba(248, 247, 242, 0.6) !important;
+
+    /* السهم */
+    background-image:
+        linear-gradient(45deg, transparent 50%, currentColor 50%),
+        linear-gradient(135deg, currentColor 50%, transparent 50%) !important;
+
+    background-position:
+        calc(100% - 20px) calc(50% - 2px),
+        calc(100% - 14px) calc(50% - 2px) !important;
+
+    background-size:
+        6px 6px,
+        6px 6px !important;
+
+    background-repeat: no-repeat !important;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Dark mode */
+.dark select.select {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: white !important;
+}
+
+/* Focus */
+select.select:focus {
+    outline: none !important;
+    border-color: #c99a2e !important;
+    box-shadow: 0 0 0 3px rgba(201, 154, 46, 0.2) !important;
+}
+
+/* Options */
+select.select option {
+    background-color: white;
+    color: #0b2a4a;
+    font-weight: 600;
+}
+
+.dark select.select option {
+    background-color: #1f2937;
+    color: white;
+}
